@@ -14,24 +14,17 @@
     margin: 0 auto;
 
     &-li {
-      // color: #FFFFFF;
-      list-style-type: none;
       width: 224px;
       height: 60px;
       border-radius: 16px;
       margin-bottom: 24px;
-      padding-top: 19px;
       box-sizing: border-box;
-
-      a {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        font-size: 18px;
-        text-decoration: none;
-        color: #FFFFFF;
-
-      }
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 18px;
+      text-decoration: none;
+      color: #FFFFFF;
 
       &:hover {
         border: 1px solid #FFFFFF;
@@ -44,10 +37,7 @@
 
       &--active {
         background: #FFFFFF;
-
-        a {
-          color: #000000;
-        }
+        color: #000000;
 
         svg {
           fill: #6347F5;
