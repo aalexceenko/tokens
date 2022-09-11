@@ -2,40 +2,55 @@ import React, {useState} from "react";
 
 import './item-list.scss';
 
-const ItemList = () => {
+const ItemList = ({token}) => {
+  console.log(token);
   const [isShown, setIsShown] = useState(false);
 
   const handleClick = (event) => {
     setIsShown(current => !current);
   }
 
+  const {id, name, symbol, logoURI, tvl, tvlChangePercentage, users, volume, volumeChangePercentage, price} = token;
+  const {hours24, days7, days365} = token.priceChange;
+
+  const getPercentColour = (percent) => {
+    if (percent > 0) {
+      return 'item-list__price-block--positive'
+    } else if (percent < 0) {
+      return 'item-list__price-block--negative'
+    } else {
+      return 'item-list__price-block--zero'
+    }
+  }
+
   return (
+  
     <div className="item-list">
-      <span className="item-list__number">#1</span>
-      <img className="item-list__img" alt=""></img>
+      <span className="item-list__number">#{id}</span>
+      <img className="item-list__img" alt="" src={logoURI}></img>
       <section className="item-list__title">
-        <p>Wrapper EVER</p>
-        <span>WEVER</span>
+        <p>{name}</p>
+        <span>{symbol}</span>
       </section>
       <section className="item-list__price">
-        <p>0.1958 $</p>
+        <p>{price} $</p>
         <div className="item-list__price-block">
-          <span>0%</span>
-          <span>+2.5%</span>
-          <span>-10.5%</span>
+          <span className={getPercentColour(hours24)}>{hours24}%</span>
+          <span className={getPercentColour(days7)}>{days7}%</span>
+          <span className={getPercentColour(days365)}>{days365}%</span>
         </div>
       </section>
       <section className="item-list__volume">
-        <p>263 406 $</p>
-        <span>-10.5%</span>
+        <p>{volume} $</p>
+        <span>{volumeChangePercentage}%</span>
       </section>
       <section className="item-list__tvl">
-        <p>10 291 268 $</p>
-        <span>-10.5%</span>
+        <p>{tvl} $</p>
+        <span>{tvlChangePercentage}%</span>
       </section>
       <section className="item-list__amount">
         <img src="/img/users.svg" alt="" />
-        <p>123 561</p>
+        <p>{users}</p>
       </section>
       <button className="item-list__btn" onClick={handleClick}>
         {!isShown ? <img src="/img/chevron-down.svg" alt="" /> : <img src="/img/chevron-up.svg" alt="" />}

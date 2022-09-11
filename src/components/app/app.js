@@ -6,14 +6,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './app.scss';
 
-const App = () => {
+const App = ({tokens}) => {
+  // console.log(tokens);
   return (
     <div className="App">
       <BrowserRouter>
       <SideBar />
 
         <Routes>
-          <Route path="/" element={<Lists />} />
+          <Route path="/" element={<Lists tokens={tokens} />} />
           <Route path="/search" element={<Search />} />
         </Routes>
 
