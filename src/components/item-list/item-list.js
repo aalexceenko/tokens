@@ -38,7 +38,6 @@ const ItemList = () => {
         <p>123 561</p>
       </section>
       <button className="item-list__btn" onClick={handleClick}>
-        {/* <img src="/img/chevron-down.svg" alt="" /> */}
         {!isShown ? <img src="/img/chevron-down.svg" alt="" /> : <img src="/img/chevron-up.svg" alt="" />}
       </button>
 
@@ -47,10 +46,6 @@ const ItemList = () => {
           <p>This is a token of the Everscale</p>
         </section>
       )}
-      {/* <section className="item-list__additional">
-        <p>This is a token of the Everscale</p>
-      </section> */}
-
 
     </div>
   )

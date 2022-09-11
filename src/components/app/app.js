@@ -1,18 +1,24 @@
-// import './App.css';
 import SideBar from '../side-bar';
-// import Filter from '../filter';
 import Lists from '../lists';
 import Search from '../search';
+
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import './app.scss';
 
 const App = () => {
   return (
     <div className="App">
-     <SideBar />
-     {/* <Filter /> */}
-     {/* <Lists /> */}
-     <Search />
+      <BrowserRouter>
+      <SideBar />
+
+        <Routes>
+          <Route path="/" element={<Lists />} />
+          <Route path="/search" element={<Search />} />
+        </Routes>
+
+      </BrowserRouter>
+
     </div>
   );
 }
