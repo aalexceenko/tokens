@@ -1,26 +1,28 @@
 import React, {useState} from "react";
+import {categories} from "../mock/tokens";
 
 import './filter.scss';
 
-const Filter = () => {
-  const tokens = ['Все', 'DeFi', 'Wallets', 'Games', 'DEX'];
+const Filter = ({handleChangefilter}) => {
+
   const [isActive, setIsActive] = useState('Все');
 
-  const listTokens = tokens.map((el, indx) => {
+  const listTokens = categories.map((el, indx) => {
     return <li 
               key={indx}
-              className={`${isActive === el && `filter-list--active`}`}
+              className={`${isActive === el.title && `filter-list--active`}`}
+              data-value={el.id}
               onClick={() => {
-                setIsActive(el);
+                setIsActive(el.title);
               }}>
-              {el}
+              {el.title}
             </li>
   })
 
   return (
     <div className="filter">
       <h1>Токены Everscale</h1>
-      <ul className="filter-list">
+      <ul className="filter-list" onClick={handleChangefilter}>
         {listTokens}
       </ul>
     </div>

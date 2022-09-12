@@ -7,19 +7,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './app.scss';
 
 const App = ({tokens}) => {
-  // console.log(tokens);
+
   return (
     <div className="App">
       <BrowserRouter>
-      <SideBar />
-
+        <SideBar />
         <Routes>
           <Route path="/" element={<Lists tokens={tokens} />} />
           <Route path="/search" element={<Search />} />
         </Routes>
-
       </BrowserRouter>
-
     </div>
   );
 }

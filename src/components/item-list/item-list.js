@@ -3,7 +3,6 @@ import React, {useState} from "react";
 import './item-list.scss';
 
 const ItemList = ({token}) => {
-  console.log(token);
   const [isShown, setIsShown] = useState(false);
 
   const handleClick = (event) => {
@@ -27,7 +26,7 @@ const ItemList = ({token}) => {
   
     <div className="item-list">
       <span className="item-list__number">#{id}</span>
-      <img className="item-list__img" alt="" src={logoURI}></img>
+      <img className="item-list__img" alt="" src={logoURI} onError = {e => e.target.style.visibility = 'hidden'}></img>
       <section className="item-list__title">
         <p>{name}</p>
         <span>{symbol}</span>
